@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Hello!{% endblock %}
+
+{% block main %}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1>Welcome!</h1>
+        <p class="lead text-muted">This website provides info on retreat and Dhamma friends.</p>
+    </div>
+</section>
+
+<div class="container">
+
+    {% for retreat in retreats %}
+
+    <div class="span3 item">
+
+        <h4> {{retreat['name']}} </h4>
+        <p>Tradition: {{retreat['tradition']}}</p>
+        <p><i class="fa fa-map-marker-alt"></i> {{retreat['address']}}</p>
+        <p>Cost: {{retreat['cost']}}</p>
+        <p>Food: {{retreat['food']}}</p>
+        <p>Schedule: {{retreat['schedule']}}</p>
+        <p>Setting: {{retreat['setting']}}</p>
+        <p>Clothing restrictions: {{retreat['clothing_restrictions']}}</p>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+<style>
+.item {
+	border: 1px solid;
+	border-color:silver;
+	padding: 10px;
+	height: 430px;
+	margin-top: 20px;
+	cursor: pointer;
+	-webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+	transition: background-color 2s;
+}
+
+.item:hover {
+	box-shadow: 0px 1px 8px rgba(200, 200, 200, .6);
+	background-color: #fff;
+	border-color: #c8c8c8;
+}
+
+.ui-dialog {
+	z-index: 9000 !important;
+}
+</style>
+{% endblock %}
